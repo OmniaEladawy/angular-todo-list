@@ -1,0 +1,25 @@
+<div class="container">
+    <h1> Todo List </h1>
+    <div class="row">
+        <div class="col-6">
+            <input type="text" #add_todo placeholder="Enter new todo">
+            <input type="button" value="Add" class="btn btn-info" (click)="add(add_todo.value)"> 
+            <h6 class="my-3">There is {{listLength}} todos</h6>
+            <div *ngFor="let task of list; let i=index">
+                <div class="tasks-list"> {{task}} <input type="button" value="Compelete" class="btn btn-danger" (click)="delete(i)"> </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <span class="mx-3 fw-bold">Todo list</span>
+            <input type="text" #search placeholder="Filter">
+            <input type="button" value="Search" class="btn btn-primary" (click)="filter(search.value)">
+            <h6 class="my-3">Filtered</h6>
+            <div *ngFor="let res of filteredText">
+                <div class="tasks-list" style="justify-content: center;">
+                    {{res}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
